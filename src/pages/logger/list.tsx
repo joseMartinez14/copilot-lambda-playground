@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type LogItem = {
     message: string;
@@ -10,6 +11,7 @@ export default function LoggerListPage() {
     const [items, setItems] = useState<LogItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchItems() {
@@ -31,6 +33,15 @@ export default function LoggerListPage() {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-900">
+            <div className="absolute top-6 left-6">
+                <button
+                    type="button"
+                    onClick={() => navigate('/')}
+                    className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded transition duration-200"
+                >
+                    Go to Home
+                </button>
+            </div>
             <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-2xl">
                 <h2 className="text-2xl font-bold text-white text-center mb-6">
                     Logger Items

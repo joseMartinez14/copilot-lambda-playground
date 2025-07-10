@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Returns local datetime in ISO format for input[type="datetime-local"], using Costa Rica's timezone (UTC-6)
 function getNowLocalISOString() {
@@ -18,6 +19,7 @@ export default function LoggerPage() {
     const [image, setImage] = useState<File | null>(null);
     const [datetime, setDatetime] = useState(getNowLocalISOString());
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -65,6 +67,7 @@ export default function LoggerPage() {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-900">
+
             <form
                 className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md space-y-6"
                 onSubmit={handleSubmit}
@@ -118,6 +121,13 @@ export default function LoggerPage() {
                     disabled={loading}
                 >
                     {loading ? 'Submitting...' : 'Submit'}
+                </button>
+                <button
+                    type="button"
+                    onClick={() => navigate('/get_log')}
+                    className="w-full mt-2 bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition duration-200"
+                >
+                    View Logs
                 </button>
             </form>
         </div>
