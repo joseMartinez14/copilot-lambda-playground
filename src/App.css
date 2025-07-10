@@ -1,5 +1,15 @@
+body {
+  background-color: #181a1b;
+  color: #fff;
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
 .App {
   text-align: center;
+  background-color: #181a1b;
+  min-height: 100vh;
+  color: #fff;
 }
 
 .App-logo {
@@ -14,14 +24,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #23272f;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
 .App-link {
@@ -35,4 +45,5 @@
   to {
     transform: rotate(360deg);
   }
+
 }
